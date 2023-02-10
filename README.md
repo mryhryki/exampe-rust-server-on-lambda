@@ -1,18 +1,18 @@
 # exampe-rust-server-on-lambda
 
-
 ## Prepare
 
 ```shell
+# Check Node.js version
+$ node --version
+v16.x.x # or later. If you do not have Node.js installed, please visit https://nodejs.org/.
+
+# Login Amazon ECR
 $ aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/mryhryki
 ```
 
-
-## Build Docker
+## How to deploy
 
 ```shell
-$ docker build --tag experimental:rust-server-on-lambda .
-
-# Run
-$ docker run --rm -p 3000:3000 experimental:rust-server-on-lambda
+$ make deploy
 ```
