@@ -31,3 +31,8 @@ const lambdaFunction = new aws.lambda.Function(
     role: lambdaRole.arn,
   },
 );
+
+new aws.lambda.FunctionUrl("example-rust-server-on-lambda", {
+  functionName: lambdaFunction.name,
+  authorizationType: "NONE",
+}).functionUrl.apply(console.log);
