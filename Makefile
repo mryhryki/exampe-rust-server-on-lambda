@@ -14,7 +14,7 @@ push-image: build
 	docker push "${ECR_URI}"
 
 run-local: build
-	docker run --rm -p "3000:3000" "${DOCKER_TAG}"
+	docker run --rm -p "8080:8080" "${DOCKER_TAG}"
 
 build:
 	printf "${DOCKER_TAG}" > .dockertag

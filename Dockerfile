@@ -13,5 +13,5 @@ COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.5.0 /lambda-adapter /opt
 
 WORKDIR /app
 COPY --from=builder "/app/target/release/example-rust-server-on-lambda" "/app/example-rust-server-on-lambda"
-EXPOSE 3000
+EXPOSE 8080
 ENTRYPOINT ["/app/example-rust-server-on-lambda"]
