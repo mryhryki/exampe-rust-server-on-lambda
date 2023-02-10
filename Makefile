@@ -7,6 +7,9 @@ push-image: build
 	docker tag "${DOCKER_TAG}" "public.ecr.aws/mryhryki/${DOCKER_TAG}"
 	docker push "public.ecr.aws/mryhryki/${DOCKER_TAG}"
 
+run-local: build
+	docker run --rm -p "3000:3000" "${DOCKER_TAG}"
+
 build:
 	printf "${DOCKER_TAG}" > .dockertag
 	docker build --tag "${DOCKER_TAG}" .

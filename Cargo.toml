@@ -1,5 +1,5 @@
 [package]
-name = "exampe-rust-server-on-lambda"
+name = "example-rust-server-on-lambda"
 version = "0.1.0"
 edition = "2021"
 
