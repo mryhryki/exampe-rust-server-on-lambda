@@ -5,8 +5,8 @@
 ## Build Docker
 
 ```shell
-$ docker build --tag exampe-rust-server-on-lambda:latest .
+$ docker build --tag experimental:rust-server-on-lambda .
 
 # Run
-$ docker run --rm -p 3000:3000 exampe-rust-server-on-lambda:latest
+$ docker run --rm -p 3000:3000 experimental:rust-server-on-lambda
 ```
