@@ -1,6 +1,12 @@
 # exampe-rust-server-on-lambda
 
 
+## Prepare
+
+```shell
+$ aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/mryhryki
+```
+
 
 ## Build Docker
 
