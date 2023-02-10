@@ -1,6 +1,7 @@
 DOCKER_TAG     := experimental:example-rust-server-on-lambda
 AWS_ACCOUNT_ID  = $(shell aws sts get-caller-identity | jq -r ".Account")
-ECR_URI         = "${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/${DOCKER_TAG}"
+ECR_REPOSITORY  = ${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com
+ECR_URI         = ${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/${DOCKER_TAG}
 
 deploy: push-image pulumi-up
 
@@ -8,7 +9,8 @@ pulumi-up: pulumi/node_modules
 	cd ./pulumi/ && ECR_URI="${ECR_URI}" pulumi up
 
 push-image: build
-	docker tag "${DOCKER_TAG}" "public.ecr.aws/mryhryki/${DOCKER_TAG}"
+	aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin "${ECR_URI}"
+	docker tag "${DOCKER_TAG}" "${ECR_URI}"
 	docker push "${ECR_URI}"
 
 run-local: build
