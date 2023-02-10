@@ -1,6 +1,8 @@
 DOCKER_TAG  := experimental:example-rust-server-on-lambda
 
-deploy: pulumi/node_modules push-image
+deploy: push-image pulumi-up
+
+pulumi-up: pulumi/node_modules
 	cd ./pulumi/ && pulumi up
 
 push-image: build

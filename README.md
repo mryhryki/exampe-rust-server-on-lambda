@@ -1,4 +1,4 @@
-# exampe-rust-server-on-lambda
+# example-rust-server-on-lambda
 
 ## Prepare
 

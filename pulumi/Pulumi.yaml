@@ -1,3 +1,3 @@
-name: exampe-rust-server-on-lambda
+name: example-rust-server-on-lambda
 runtime: nodejs
-description: exampe-rust-server-on-lambda
+description: example-rust-server-on-lambda
