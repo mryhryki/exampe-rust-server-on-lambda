@@ -17,6 +17,7 @@ run-local: build
 	docker run --rm -p "8080:8080" "${DOCKER_TAG}"
 
 build:
+	aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
 	printf "${DOCKER_TAG}" > .dockertag
 	docker build --tag "${DOCKER_TAG}" .
 
