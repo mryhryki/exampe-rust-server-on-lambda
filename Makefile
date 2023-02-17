@@ -5,6 +5,9 @@ ECR_URI         = ${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/${DOCKE
 
 deploy: push-image pulumi-up
 
+remove: pulumi/node_modules
+	cd ./pulumi/ && ECR_URI="${ECR_URI}" pulumi down
+
 pulumi-up: pulumi/node_modules
 	cd ./pulumi/ && ECR_URI="${ECR_URI}" pulumi up
 
