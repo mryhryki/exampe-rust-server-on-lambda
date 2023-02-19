@@ -1,6 +1,4 @@
-import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-import * as awsx from "@pulumi/awsx";
 
 const lambdaRole = new aws.iam.Role("example-rust-server-on-lambda-role", {
   assumeRolePolicy: {
